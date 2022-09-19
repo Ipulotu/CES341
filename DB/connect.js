@@ -2,7 +2,7 @@ const dotenv = require("dotenv")
 dotenv.config()
 const { MongoClient} = require('mongodb');
 
-
+//declering _db var
 let _db;
 
 //function to initialize connect to MongoDB
