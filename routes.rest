@@ -1,7 +1,8 @@
  //LOCALHOST 
- ###
+ ### get all contacs
 GET http://localhost:8080/contacts 
-###
+
+### Get one cotact
 GET http://localhost:8080/contacts/632893e28fae4a870db1d2a8 
 
 ### Creating a contact
@@ -17,11 +18,10 @@ Content-Type: application/json
 }
 
 ### Deleteing a contact
-DELETE http://localhost:8080/contacts/6331d40cfafc0f353c485ca7 HTTP/1.1
+DELETE http://localhost:8080/contacts/63322d94e6fc1472255778a9 HTTP/1.1
 
 ### Update a contact
-
-PUT http://localhost:8080/contacts/6331d40cfafc0f353c485ca7 HTTP/1.1
+PUT http://localhost:8080/contacts/63322d94e6fc1472255778a9 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -32,12 +32,40 @@ Content-Type: application/json
     "birthday.": "2002-06-01T00:00:00.000Z"
 }
 
+
+
+
+
 // PRODUCTION Deploy 
-###
+### Get all contacts
 GET https://ipulotu-ces341.onrender.com/contacts 
-### 
+### Get one contact
 GET https://ipulotu-ces341.onrender.com/contacts/632893e28fae4a870db1d2a8
-### 
-GET https://ipulotu-ces341.onrender.com/contacts/632894978fae4a870db1d2a9 
-### 
-GET https://ipulotu-ces341.onrender.com/contacts/6328965c8fae4a870db1d2aa
+
+### Create a new contact 
+POST https://ipulotu-ces341.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Bill",
+    "lastName": "cloolio",
+    "email": "iammrewn@yahoo.com",
+    "favoriteColor": "gray",
+    "birthday.": "1999-06-01"
+}
+
+### Deleteing a contact
+DELETE https://ipulotu-ces341.onrender.com/contacts/6331f2d79b7249e511c496a8 HTTP/1.1
+
+### Update a contact
+
+PUT https://ipulotu-ces341.onrender.com/contacts/6331f2d79b7249e511c496a8 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "will",
+    "lastName": "Rloolio",
+    "email": "Rullon@yahoo.com",
+    "favoriteColor": "white",
+    "birthday.": "2002-06-01T00:00:00.000Z"
+}
