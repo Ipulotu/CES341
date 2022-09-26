@@ -18,4 +18,61 @@ async function getContact(req, res, next){
       });
 }
 
-module.exports = {getAll, getContact}
+
+async function createContact(req, res){
+  const data = await mongodb.getDb().db("CSE341").collection('contacts');
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  }
+  data.insertOne(contact)    
+    .then(result => {
+    console.log(result)
+    res.status(201)
+  })
+  .catch(error => console.error(error))
+}
+
+async function deleteContact(req, res){
+  const data = await mongodb.getDb().db("CSE341").collection('contacts');
+  const userId = new ObjectId(req.params.id);
+
+  data.remove({ _id: userId }, true)
+    .then(result => {
+      console.log(result)
+      res.status(204)
+    })
+    .catch(error => console.error(error)) 
+}
+
+
+
+async function updateContact(req, res){
+  const userId = new ObjectId(req.params.id);
+  const data = await mongodb.getDb().db("CSE341").collection('contacts');
+
+  data.updateOne(
+    { _id: userId },
+    {
+      $set: {  
+        'firstName': req.body.firstName,
+        'lastName': req.body.lastName,
+        'email': req.body.email,
+        'favoriteColor': req.body.favoriteColor,
+        'birthday': req.body.birthday 
+      }
+    }
+  )
+    .then(result => {
+      console.log(result)
+      res.status(204)
+    })
+    .catch(error => console.error(error)) 
+}
+
+
+
+module.exports = {getAll, getContact, createContact, deleteContact, updateContact}
