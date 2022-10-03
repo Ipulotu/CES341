@@ -8,7 +8,7 @@
   "host": "ipulotu-ces341.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
