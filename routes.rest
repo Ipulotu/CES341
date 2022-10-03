@@ -54,12 +54,10 @@ Content-Type: application/json
     "birthday.": "1999-06-01"
 }
 
-### Deleteing a contact
-DELETE https://ipulotu-ces341.onrender.com/contacts/6331f2d79b7249e511c496a8 HTTP/1.1
 
 ### Update a contact
 
-PUT https://ipulotu-ces341.onrender.com/contacts/6331f2d79b7249e511c496a8 HTTP/1.1
+PUT https://ipulotu-ces341.onrender.com/contacts/63330d29c9392e2258a6bdfe HTTP/1.1
 Content-Type: application/json
 
 {
@@ -69,3 +67,8 @@ Content-Type: application/json
     "favoriteColor": "white",
     "birthday.": "2002-06-01T00:00:00.000Z"
 }
+
+
+### Deleteing a contact
+DELETE https://ipulotu-ces341.onrender.com/contacts/63330d29c9392e2258a6bdfe HTTP/1.1
+
