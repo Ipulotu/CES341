@@ -5,7 +5,7 @@ const doc = {
     title: 'Contacts API',
     description: 'This API is running on node.js and is connected to a MongoDB with Mongodb Atlas',
   },
-  host: 'https://ipulotu-ces341.onrender.com',
+  host: 'ipulotu-ces341.onrender.com',
   schemes: ['http'],
 };
 
