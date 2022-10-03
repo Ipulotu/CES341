@@ -5,12 +5,19 @@
     "description": "This API is running on node.js and is connected to a MongoDB with Mongodb Atlas",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://ipulotu-ces341.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
   ],
   "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/contacts/": {
       "get": {
         "description": "",
