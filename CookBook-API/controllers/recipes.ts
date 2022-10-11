@@ -55,17 +55,17 @@ class CookBook{
     .catch((error: any) => console.error(error))
   }
 
-// //Function to dealet contact
-// async function deleteContact(req, res){
-//   const data = await mongodb.getDb().db("CSE341").collection('contacts');
-//   const userId = new ObjectId(req.params.id);
+//Function to dealet contact
+async deleteRecipe(req: Request, res: Response){
+  const data = await mongodb.getDb().db("CookBook").collection('Recipes');
+  const recipesId = new ObjectId(req.params.id);
 
-//   const result = await data.remove({ _id: userId }, true)
-//       console.log(result)
-//       res.status(200).json(result)
+  const result = await data.remove({ _id: recipesId }, true)
+      console.log(result)
+      res.status(200).json(result)
    
 
-// }
+}
 
 
 

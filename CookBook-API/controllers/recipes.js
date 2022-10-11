@@ -61,6 +61,16 @@ class CookBook {
                 .catch((error) => console.error(error));
         });
     }
+    //Function to dealet contact
+    deleteRecipe(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = yield mongodb.getDb().db("CookBook").collection('Recipes');
+            const recipesId = new ObjectId(req.params.id);
+            const result = yield data.remove({ _id: recipesId }, true);
+            console.log(result);
+            res.status(200).json(result);
+        });
+    }
 }
 let cb = new CookBook();
 module.exports = cb;
