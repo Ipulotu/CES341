@@ -5,7 +5,7 @@
     "description": "Here you can find some greate recipes",
     "version": "1.0.0"
   },
-  "host": "https://ipulotu-cookbook.onrender.com",
+  "host": "ipulotu-cookbook.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
