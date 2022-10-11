@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "ts-node index.ts",
     "build": "tsc --project ./",
-    "swagger-autogen": "node ./swagger.js"
+    "swagger-autogen": "ts-node ./swagger.ts"
   },
   "author": "",
   "license": "ISC",
