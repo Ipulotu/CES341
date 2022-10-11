@@ -5,8 +5,8 @@ const doc = {
     title: 'Cook Book API',
     description: 'Here you can find some greate recipes',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'https://ipulotu-cookbook.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

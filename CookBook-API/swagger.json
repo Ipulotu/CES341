@@ -5,10 +5,10 @@
     "description": "Here you can find some greate recipes",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://ipulotu-cookbook.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
