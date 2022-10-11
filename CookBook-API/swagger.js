@@ -5,7 +5,7 @@ const doc = {
     title: 'Cook Book API',
     description: 'Here you can find some greate recipes',
   },
-  host: 'https://ipulotu-cookbook.onrender.com',
+  host: 'ipulotu-cookbook.onrender.com',
   schemes: ['https'],
 };
 
