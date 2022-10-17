@@ -60,12 +60,6 @@
                 },
                 "ingredient1Amount": {
                   "example": "any"
-                },
-                "ingredient2Name": {
-                  "example": "any"
-                },
-                "ingredient2Amount": {
-                  "example": "any"
                 }
               }
             }
@@ -74,6 +68,52 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "timeToCook": {
+                  "example": "any"
+                },
+                "ingredient1Name": {
+                  "example": "any"
+                },
+                "ingredient1Amount": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -95,6 +135,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -111,6 +154,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
