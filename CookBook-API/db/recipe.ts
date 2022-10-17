@@ -5,8 +5,8 @@ export interface recipe {
     servings: number;
     timeToCook: string;
     ingredient1: {
-        "name":string,
-        "amount": string
+        name:string,
+        amount: string
     };
     [key: string]: any;
 

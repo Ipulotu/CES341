@@ -49,8 +49,8 @@ class CookBook{
       servings: req.body.servings,
       timeToCook: req.body.timeToCook,
       ingredient1: {
-        "name": req.body.ingredient1Name,
-        "amount": req.body.ingredient1Amount
+        name: req.body.ingredient1Name,
+        amount: req.body.ingredient1Amount
       }
     }
     recipe = addIngredients(req, recipe)
@@ -82,13 +82,15 @@ class CookBook{
   //Function to update a Recipe
   async updateRecipe(req: Request, res: Response){
     //valadating id
+
+    console.log("made it here")
     if(!valadateId(req.params.id)|| req.params.id == null){
       res.status(500).send('Invalied Id')
       return;
     }
 
     const recipeId = new ObjectId(req.params.id);
-    const data = await mongodb.getDb().db("CSE341").collection('contacts');
+    const data = await mongodb.getDb().db("CookBook").collection('Recipes');
     let recipe:typeof Recipe; 
     
     if(!valadateStrings(req)){
@@ -103,10 +105,11 @@ class CookBook{
       servings: req.body.servings,
       timeToCook: req.body.timeToCook,
       ingredient1: {
-        "name": req.body.ingredient1Name,
-        "amount": req.body.ingredient1Amount
+        name: req.body.ingredient1Name,
+        amount: req.body.ingredient1Amount
       }
     }
+  
     recipe = addIngredients(req, recipe)
 
 
@@ -129,13 +132,13 @@ function addIngredients(req: Request, recipe:typeof Recipe){
     let ingredientName = `ingredient${i}Name`
     let ingredientAmount = `ingredient${i}Amount`
 
-    if (req.body[ingredient] != null){
+    if (req.body[ingredientName] != null){
       recipe[ingredient] = {
-        "name": req.body[ingredientName],
-        "amount": req.body[ingredientAmount]
+        name: req.body[ingredientName],
+        amount: req.body[ingredientAmount]
       }
     }
-    else if (req.body[ingredient] == null) {break;}
+    else if (req.body[ingredientName] == null) {break;}
     else if (i == MaxIngredient ) {console.log("You have reached the max number of ingrdents")}
     else{console.log("error with loading ingredients")}
   } 
