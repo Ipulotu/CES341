@@ -110,7 +110,7 @@ class CookBook{
     recipe = addIngredients(req, recipe)
 
 
-    const response = await data.replaceOne({ _id: recipeId }, Recipe);
+    const response = await data.replaceOne({ _id: recipeId }, recipe);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
