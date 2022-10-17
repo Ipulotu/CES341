@@ -8,25 +8,6 @@ export interface recipe {
         "name":string,
         "amount": string
     };
-    ingredient2?: {
-        "name":string,
-        "amount": string
-    };
-    ingredient3?: {
-        "name":string,
-        "amount": string
-    };
-    ingredient4?: {
-        "name":string,
-        "amount": string
-    };
-    ingredient5?: {
-        "name":string,
-        "amount": string
-    };
-    ingredient6?: {
-        "name":string,
-        "amount": string
-    };
+    [key: string]: any;
 
   }

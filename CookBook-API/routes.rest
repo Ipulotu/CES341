@@ -3,7 +3,7 @@
 GET http://localhost:8080/cookbook
 
 ### Get one cotact
-GET http://localhost:8080/cookbook/634594847a0af984f36860c8 
+GET http://localhost:8080/cookbook/634d733f47a5se00362ef830 
 
 ### Creating a contact
 POST http://localhost:8080/cookbook HTTP/1.1
@@ -16,30 +16,37 @@ Content-Type: application/json
     "servings": "test",
     "timeToCook": "test",
     "ingredient1": {
-        "name":"test",
-        "amount": "test"
+        "ingredient1Name":"test",
+        "ingredient1Amount": "test"
     },
     "ingredient2": {
-        "name":"test",
-        "amount": "test"
+        "ingredient2Name":"test",
+        "ingredient2Amount": "test"
     }
 }
 
 ### Deleteing a contact
-DELETE http://localhost:8080/cookbook/634594847a0af984f36860c8 HTTP/1.1
+DELETE http://localhost:8080/cookbook/634d733f47a55e00362ef830 HTTP/1.1
 
-# ### Update a contact
-# PUT http://localhost:8080/contacts/63322d94e6fc1472255778a9 HTTP/1.1
-# Content-Type: application/json
+### Update a contact
+PUT http://localhost:8080/cookbook HTTP/1.1
+Content-Type: application/json
 
-# {
-#     "firstName": "will",
-#     "lastName": "Rloolio",
-#     "email": "Rullon@yahoo.com",
-#     "favoriteColor": "white",
-#     "birthday.": "2002-06-01T00:00:00.000Z"
-# }
-
+{
+    "name": "test",
+    "description": "test",
+    "type": "test",
+    "servings": "test",
+    "timeToCook": "test",
+    "ingredient1": {
+        "ingredient1Name":"test",
+        "ingredient1Amount": "test"
+    },
+    "ingredient2": {
+        "ingredient2Name":"test",
+        "ingredient2Amount": "test"
+    }
+}
 
 
 
@@ -74,3 +81,23 @@ Content-Type: application/json
 
 ### Deleteing a contact
 DELETE https://ipulotu-cookbook.onrender.com/cookbook/634594847a0af984f36860c8 HTTP/1.1
+
+### Update a contact
+PUT https://ipulotu-cookbook.onrender.com/cookbook HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "test",
+    "description": "test",
+    "type": "test",
+    "servings": "test",
+    "timeToCook": "test",
+    "ingredient1": {
+        "ingredient1Name":"test",
+        "ingredient1Amount": "test"
+    },
+    "ingredient2": {
+        "ingredient2Name":"test",
+        "ingredient2Amount": "test"
+    }
+}
