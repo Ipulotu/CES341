@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-const Recipe = require('../db/recipe')
+const Recipe = require('../models/recipe')
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 var mongoose = require('mongoose');
@@ -9,9 +9,12 @@ class CookBook{
   //Function to get all Recipes
   async getAllRecipe(req: Request, res: Response){
     const data = await mongodb.getDb().db("CookBook").collection('Recipes').find();
-    data.toArray().then((recipe: typeof Recipe) => {
+    data.toArray((err:any, result: typeof Recipe) => {
+      if (err) {
+        res.status(400).json({ message: err });
+      }
       res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(recipe);
+      res.status(200).json(result);
     });
   };
 
@@ -25,9 +28,12 @@ class CookBook{
     const recipeId = new ObjectId(req.params.id);
       
     const data = await mongodb.getDb().db("CookBook").collection('Recipes').find({ _id: recipeId });
-    data.toArray().then((recipes: typeof Recipe) => {
+    data.toArray((err:any, result: typeof Recipe) => {
+      if (err) {
+        res.status(400).json({ message: err });
+      }
       res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(recipes[0]);
+      res.status(200).json(result[0]);
     });
   }
 
