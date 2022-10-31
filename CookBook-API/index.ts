@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const session = require('express-session');
 const passport = require('passport');
+const UserSchema = require('module/User')
 const PORT = 8080;
 
 
