@@ -32,10 +32,18 @@ process.on('uncaughtException', (err, origin) => {
 
 
 /*  PASSPORT SETUP  */
+//Path for succsesful login
 var userProfile:any;
 app.get('/success', (req, res) => res.render('pages/success',{
   user: userProfile
 }));
+
+//Path for created account & succsesful login
+app.get('/success/create', (req, res) => res.render('pages/success',{
+  user: userProfile,
+  message:"New Account created!"
+}));
+
 
 passport.serializeUser(function(user:any, cb:any) {
   cb(null, user);
@@ -100,14 +108,31 @@ app.get('/auth/google',
  
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/error' }),
-  function(req, res) {
+  async function(req, res) {
+    const connection = await mongodb.getDb().db("CookBook").collection('Recipes');
     // Successful authentication, redirect success.
-    res.redirect('/success');
+    var user = connection.find({ googleId: userProfile.id});
+    
+
+      //Cheking for user in db
+        if (!user) {
+          user = {
+            googleId: userProfile.id,
+            displayName: userProfile.displayName
+          };
+
+          //Adding user to db
+          connection.insertOne(user)    
+            .then((result: any) => {
+              console.log(result)
+            })
+          .catch((error: any) => console.error(error))
+          res.redirect('/success/create');
+
+        }else{
+          res.redirect('/success');
+        }
   });
-
-
-
-
 
 
 
