@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const session = require('express-session');
 const passport = require('passport');
-const UserSchema = require('models/User')
 const PORT = 8080;
 
 
@@ -69,7 +68,7 @@ passport.use(new GoogleStrategy({
   // },
     async function(accessToken: null, refreshToken: null, profile:any, done:any) {
       const connection = await mongodb.getDb().db("CookBook").collection('Recipes');
-      const User = connection.model('User', UserSchema);
+      // const User = connection.model('User', UserSchema);
 
       //Cheking for user in db
       var user = await connection.find({ googleId: profile.id});
