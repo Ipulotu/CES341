@@ -62,28 +62,24 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.REDIRECT_URI
   },
-  // function(accessToken: null, refreshToken: null, profile:any, done:any) {
-  //     userProfile=profile;
-  //     return done(null, userProfile);
-  // },
     async function(accessToken: null, refreshToken: null, profile:any, done:any) {
-      const connection = await mongodb.getDb().db("CookBook").collection('Recipes');
+      const connection = await mongodb.getDb().db("CookBook").collection('Recipes').find({ googleId: profile.id});
       // const User = connection.model('User', UserSchema);
+      var user = connection.find({ googleId: profile.id});
 
       //Cheking for user in db
-      var user = await connection.find({ googleId: profile.id});
         if (!user) {
-          // //Adding user to db
-          // user = new User({
-          //   googleId: profile.id,
-          //   displayName: profile.displayName
-          // });
+          user = {
+            googleId: profile.id,
+            displayName: profile.displayName
+          };
 
-          // user.save(function (err:Error) {
-          //   if (err) return err;
-          //   // saved!
-          //   return done(null, user);
-          // });
+          //Adding user to db
+          connection.insertOne(user)    
+            .then((result: any) => {
+              console.log(result)
+            })
+          .catch((error: any) => console.error(error))
 
         }else{
           return done(null, user);
