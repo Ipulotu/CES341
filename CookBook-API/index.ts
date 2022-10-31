@@ -39,7 +39,7 @@ app.get('/success', (req, res) => res.render('pages/success',{
 }));
 
 //Path for created account & succsesful login
-app.get('/success/create', (req, res) => res.render('pages/success',{
+app.get('/success/create', (req, res) => res.render('pages/successCreate',{
   user: userProfile,
   message:"New Account created!"
 }));
