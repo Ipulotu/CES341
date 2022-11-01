@@ -109,14 +109,13 @@ app.get('/auth/google',
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/error' }),
   async function(req, res) {
-    const connection = await mongodb.getDb().db("CookBook").collection('Recipes');
+    const connection = await mongodb.getDb().db("CookBook").collection('Users');
     // Successful authentication, redirect success.
-    var user = connection.find({ googleId: userProfile.id});
-    
-
-      //Cheking for user in db
-        if (!user) {
-          user = {
+    var data = connection.find({ googleId: userProfile.id});
+    data.toArray().then((users:any) => {
+        //Cheking for user in db
+        if (users[0] == null) {
+          let user = {
             googleId: userProfile.id,
             displayName: userProfile.displayName
           };
@@ -129,9 +128,10 @@ app.get('/auth/google/callback',
           .catch((error: any) => console.error(error))
           res.redirect('/success/create');
 
-        }else{
+        }else if(users[0].id == userProfile.id){
           res.redirect('/success');
         }
+    });
   });
 
 

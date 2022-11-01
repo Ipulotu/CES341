@@ -15,6 +15,7 @@ async function getContact(req, res, next){
     const userId = new ObjectId(req.params.id);
     const data = await mongodb.getDb().db("CSE341").collection('contacts').find({ _id: userId });
     data.toArray().then((contact) => {
+        console.log(contact);
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(contact[0]);
       });
