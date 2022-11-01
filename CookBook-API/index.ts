@@ -128,7 +128,7 @@ app.get('/auth/google/callback',
           .catch((error: any) => console.error(error))
           res.redirect('/success/create');
 
-        }else if(users[0].id == userProfile.id){
+        }else if(users[0].googleId == userProfile.id){
           res.redirect('/success');
         }
     });
