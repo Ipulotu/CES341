@@ -75,32 +75,6 @@ passport.use(new GoogleStrategy({
     return done(null, userProfile);
 }
 ));
-//     async function(accessToken: null, refreshToken: null, profile:any, done:any) {
-//       const connection = await mongodb.getDb().db("CookBook").collection('Recipes').find({ googleId: profile.id});
-//       // const User = connection.model('User', UserSchema);
-//       var user = connection.find({ googleId: profile.id});
-//       console.log(user);
-
-//       //Cheking for user in db
-//         if (!user) {
-//           user = {
-//             googleId: profile.id,
-//             displayName: profile.displayName
-//           };
-
-//           //Adding user to db
-//           connection.insertOne(user)    
-//             .then((result: any) => {
-//               console.log(result)
-//             })
-//           .catch((error: any) => console.error(error))
-
-//         }else{
-//           return done(null, user);
-//         }
-//     }
-// ));
-
 
 
 app.get('/auth/google', 
